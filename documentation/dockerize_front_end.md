@@ -65,7 +65,7 @@ The former command has many parts:
 I like to name my containers **image_tag**_*environment* (in this particular instance it would be click_counter_local). Another
 thing that I like is to change the port on my local environment just to know what I'm doing, so I mapped local port 3010 to image port 3000
 so I know that I need to type localhost:3010 at my local browser despite logs telling me that my local is http://localhost:3000
-![alt text](./doc_images/00_docker_run_log.PNG "docker dev console")
+![alt text](../doc_images/00_docker_run_log.PNG "docker dev console")
 
 To stop your container you either click Ctrl+c on your log console or open another powershell terminal and type:
 ´´´
