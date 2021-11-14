@@ -85,5 +85,12 @@ docker start your_container_name
 
 * Create a counter app (button that counts clicks) we will use arrow functions syntax[arrow counter sample](https://www.robinwieruch.de/react-function-component)
 
+Just for beauty I installed react-boostrap package running:
+´´´
+npm i react-bootstrap --save
+´´´
+
+Dont forget to import boostrat ap your index.js
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 [Back](../README.md)
