@@ -33,6 +33,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 This is all the steps you need to dockerize your app.
 To keep things easy we will use docker for windows as our main environment.
+**Imortant**: you should also have a .dockerignore file to speed things up
 
 ### Build your docker image
 
