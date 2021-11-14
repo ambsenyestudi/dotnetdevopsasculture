@@ -10,4 +10,4 @@ How to become proficient as a dotnet developer on DevOps
 
 * [Publish your dotnet app](./documentation/dotnet_cmd.md)
 * [Dockerize your front end](./documentation/dockerize_front_end.md)
-* [Mount a docker volumns to keep data stored](./documentation/persitence_docker_volumes.md)
+* [Mount a docker volum to keep data stored](./documentation/persitence_docker_volumes.md)
