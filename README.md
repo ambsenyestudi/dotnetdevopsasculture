@@ -12,3 +12,4 @@ Conent
 
 * [Publish your dotnet app](./documentation/dotnet_cmd.md)
 * [Dockerize your dotnet API](./documentation/dockerize_api.md)
+* [Automate Docker commands with Powershell](./documentation/dockerize_api.md)
