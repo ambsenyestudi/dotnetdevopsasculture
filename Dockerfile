@@ -4,18 +4,23 @@ EXPOSE 5000
 
 ENV ASPNETCORE_URLS=http://+:5000
 
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-dotnet-configure-containers
+RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+USER appuser
+
 FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
 WORKDIR /src
-COPY ["src/DefaultWebAPI/DefaultWebAPI/DefaultWebAPI.csproj", "src/DefaultWebAPI/DefaultWebAPI/"]
-RUN dotnet restore "src/DefaultWebAPI/DefaultWebAPI/DefaultWebAPI.csproj"
+COPY ["src/api/ClickCounter.Api.csproj", "src/api/"]
+RUN dotnet restore "src/api/ClickCounter.Api.csproj"
 COPY . .
-WORKDIR "/src/src/DefaultWebAPI/DefaultWebAPI"
-RUN dotnet build "DefaultWebAPI.csproj" -c Release -o /app/build
+WORKDIR "/src/src/api"
+RUN dotnet build "ClickCounter.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "DefaultWebAPI.csproj" -c Release -o /app/publish
+RUN dotnet publish "ClickCounter.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "DefaultWebAPI.dll"]
+ENTRYPOINT ["dotnet", "ClickCounter.Api.dll"]
