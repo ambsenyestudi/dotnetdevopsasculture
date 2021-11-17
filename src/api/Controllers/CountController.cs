@@ -27,7 +27,7 @@ namespace ClickCounter.Api.Controllers
         [HttpPut]
         public async Task<Count> Increment(CancellationToken cancellationToken) 
         {
-            await service.IncrementCountAsync(cancellationToken).ConfigureAwait(false);
+            await service.IncrementClickCountAsync(cancellationToken).ConfigureAwait(false);
             return await service.GetCountAsync(cancellationToken).ConfigureAwait(false);
         }
     }

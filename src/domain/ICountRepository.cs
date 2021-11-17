@@ -6,6 +6,6 @@ namespace ClickCounter.Domain
     public interface ICountRepository
     {
         Task<Count> GetCountAsync(CancellationToken cancellationToken);
-        Task IncrementCountAsync(CancellationToken cancellationToken);
+        Task IncrementClickCountAsync(CancellationToken cancellationToken);
     }
 }

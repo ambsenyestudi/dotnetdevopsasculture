@@ -15,7 +15,7 @@ namespace ClickCounter.Application
         public Task<Count> GetCountAsync(CancellationToken cancellationToken) =>
             repository.GetCountAsync(cancellationToken);
 
-        public Task IncrementCountAsync(CancellationToken cancellationToken) =>
-            repository.IncrementCountAsync(cancellationToken);
+        public Task IncrementClickCountAsync(CancellationToken cancellationToken) =>
+            repository.IncrementClickCountAsync(cancellationToken);
     }
 }
