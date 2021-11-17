@@ -10,8 +10,7 @@ docker run -it -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Sample123$" -p 1433:1433 --nam
 ```
 then let's jump start our database with:
 ```
-docker exec -it sqlserver /bin/bash
-/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Sample123$
+docker exec -it sqlserver /bin/bash/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Sample123$
 ```
 We just connected to the sql command line inside our container, let's create our db and our table:
 ```
