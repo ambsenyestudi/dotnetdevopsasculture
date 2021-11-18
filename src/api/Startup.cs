@@ -45,7 +45,7 @@ namespace ClickCounter.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, CounterContext context)
         {
             if (env.IsDevelopment())
             {
@@ -53,7 +53,7 @@ namespace ClickCounter.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClickCounter.Api v1"));
             }
-
+            context.Database.EnsureCreated();
             app.UseHttpsRedirection();
 
             app.UseRouting();
