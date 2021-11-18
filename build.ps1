@@ -1,1 +1,1 @@
-docker build -t click_count_api:v0.1 .
+docker build -t click_count_api:v0.2 .
