@@ -1,0 +1,22 @@
+# Example Docker Compose file for our chapter 2 application
+version: '3.9'
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-CU13-ubuntu-20.04
+    volumes:
+      - mssqldata:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Sample_123
+    ports:
+      - 1433:1433
+  click_counter_api:
+    build: .
+    environment: 
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=CountsDb;uid=SA;Password=Sample_123;
+    ports:
+      - 5010:5000
+    depends_on:
+      - sqlserver
+volumes:
+  mssqldata:
