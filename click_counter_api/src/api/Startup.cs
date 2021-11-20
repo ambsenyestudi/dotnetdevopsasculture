@@ -59,7 +59,8 @@ namespace ClickCounter.Api
             app.UseRouting();
 
             app.UseAuthorization();
-
+            //hack to avoid CORS error from react
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
