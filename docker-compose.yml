@@ -11,28 +11,34 @@ services:
     ports:
       - 1433:1433
     networks:
-      - my_network
+      - internal_container_network
   click_counter_api:
     build: click_counter_api
     environment: 
       - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=CountsDb;uid=SA;Password=Sample_123;
     ports:
       - 5010:5000
-    depends_on:
-      - sqlserver
     networks:
-      - my_network
+      - internal_container_network
   click_counter_web:
     build: click_counter_web
     environment: 
-      - REACT_APP_CLICK_COUNTER_API_URL = http://click_counter_api:5010
+      - REACT_APP_CLICK_COUNTER_API_URL = click_counter_api:5010
       - REACT_APP_COUNT_ENDPOINT = count
     ports:
       - 3010:3000
+    depends_on:
+      - click_counter_api
     networks:
-      - my_network
+      - public_network
+      - internal_container_network
 volumes:
   mssqldata:
 networks:
-  my_network:
+  public_network:
+    external:
+      name: click_counter_network
+  internal_container_network:
+    name: internal_network_bridge
+    internal: true
     
