@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: hello-world-web
+  labels:
+    tier: frontend
+spec:
+  containers:
+    - name: hello-world-web
+      image: kubernetes-hello-world:v0.1
+      ports:
+      - containerPort: 80

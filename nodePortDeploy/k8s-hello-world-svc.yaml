@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-world-web
+spec:
+  selector:
+    tier: frontend
+  type: NodePort
+  ports: 
+    - port: 5000
+      targetPort: 80
